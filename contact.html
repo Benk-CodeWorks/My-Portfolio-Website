@@ -194,6 +194,9 @@
       const successMsg = document.getElementById('success-message');
       const errorMsg = document.getElementById('error-message');
       
+      // Email validation regex
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      
       // Validate fields
       if (!nameField.value.trim()) {
         alert('Please enter your name');
@@ -201,6 +204,10 @@
       }
       if (!emailField.value.trim()) {
         alert('Please enter your email');
+        return;
+      }
+      if (!emailRegex.test(emailField.value.trim())) {
+        alert('Please enter a valid email address');
         return;
       }
       if (!messageField.value.trim()) {
